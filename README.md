@@ -206,7 +206,7 @@ src/
 
 ## 📝 License
 
-Built for Smart India Hackathon 2026. This is a demonstration prototype, not a live healthcare system.
+Built for HackWithaditya. This is a demonstration prototype, not a live healthcare system.
 
 ---
 
