@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="RuralCare 360 — a closed-loop rural healthcare coordination prototype." />
+    <title>RuralCare 360</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar" id="sidebar">
+        <a class="brand" href="#dashboard" data-view-link="dashboard"><span>RC</span> RuralCare 360</a>
+        <p class="sidebar-label">CARE COORDINATION</p>
+        <nav>
+          <button class="nav-link active" data-view="dashboard">▦ Dashboard</button>
+          <button class="nav-link" data-view="triage">♡ Digital Triage</button>
+          <button class="nav-link" data-view="referrals">⇄ Referrals</button>
+          <button class="nav-link" data-view="facilities">⌖ Facilities</button>
+          <button class="nav-link" data-view="followups">✓ Follow-ups</button>
+        </nav>
+        <div class="sidebar-footer"><span class="dot"></span> Prototype mode<br><small>Uses fictional demo data</small></div>
+      </aside>
+
+      <main class="main-content">
+        <header class="topbar">
+          <button class="menu-button" aria-label="Open menu" id="menuButton">☰</button>
+          <div><strong>PHC A — Rampur</strong><small id="networkStatus">● Online · synced</small></div>
+          <div class="top-actions">
+            <button class="icon-button" id="offlineButton" title="Toggle offline mode">◉</button>
+            <select id="languageSelect" aria-label="Language"><option value="en">English</option><option value="te">తెలుగు</option><option value="hi">हिंदी</option></select>
+          </div>
+        </header>
+
+        <section class="view active" id="dashboard">
+          <div class="hero"><div><p class="eyebrow">RURAL HEALTHCARE COORDINATION</p><h1>Every referral should end in completed care.</h1><p>Connect patients, ASHA workers, doctors, and facilities in one continuous care journey.</p></div><button class="primary" data-go="triage">Start triage →</button></div>
+          <div class="metric-grid" id="metrics"></div>
+          <section class="card"><div class="section-heading"><div><p class="eyebrow green">CLOSED-LOOP CARE</p><h2>Patient care pipeline</h2></div><button class="text-button" data-go="referrals">View referrals →</button></div><div class="pipeline" id="pipeline"></div></section>
+          <div class="two-column"><section class="card"><div class="section-heading"><h2>Priority alerts</h2><span class="pill red">3 active</span></div><div id="alerts"></div></section><section class="card"><div class="section-heading"><h2>Today’s patients</h2><button class="text-button" data-go="triage">New triage</button></div><div id="patients"></div></section></div>
+        </section>
+
+        <section class="view" id="triage">
+          <div class="page-heading"><p class="eyebrow green">CLINICAL ASSESSMENT</p><h1>Digital Triage</h1><p>Record vital signs and identify patients requiring urgent attention.</p></div>
+          <form class="card triage-form" id="triageForm">
+            <div class="form-grid"><label>Patient name<input id="patientName" required placeholder="e.g., Ramesh Kumar" /></label><label>Village<input id="village" required placeholder="e.g., Rampur" /></label><label>Primary concern<input id="condition" required placeholder="e.g., Chest discomfort" /></label><label>Age<input id="age" type="number" min="0" max="120" value="45" required /></label></div>
+            <h2>Vital signs</h2><div class="form-grid vitals"><label>Temperature °C<input id="temperature" type="number" step="0.1" value="37" required /></label><label>Systolic BP<input id="bp" type="number" value="120" required /></label><label>SpO₂ %<input id="spo2" type="number" min="70" max="100" value="98" required /></label><label>Pulse bpm<input id="pulse" type="number" value="75" required /></label></div>
+            <fieldset><legend>Emergency red flags</legend><div class="checks"><label><input id="chestPain" type="checkbox" /> Chest pain</label><label><input id="breathing" type="checkbox" /> Breathing difficulty</label><label><input id="bleeding" type="checkbox" /> Severe bleeding</label><label><input id="unconscious" type="checkbox" /> Loss of consciousness</label></div></fieldset><button class="primary" type="submit">Assess patient →</button>
+          </form><div id="triageResult" aria-live="polite"></div>
+        </section>
+
+        <section class="view" id="referrals"><div class="page-heading"><p class="eyebrow green">CONTINUUM TRACKING</p><h1>Referrals</h1><p>Track every patient from referral creation to follow-up and closure.</p></div><div class="toolbar card"><input id="referralSearch" placeholder="Search by ID or patient name" /><select id="statusFilter"><option value="all">All statuses</option><option value="created">Created</option><option value="accepted">Accepted</option><option value="appointment">Appointment booked</option><option value="closed">Closed</option><option value="missed">Missed</option></select></div><div class="card table-wrap"><table><thead><tr><th>Referral ID</th><th>Patient</th><th>Specialty</th><th>Priority</th><th>Status</th><th>Next step</th></tr></thead><tbody id="referralRows"></tbody></table></div></section>
+
+        <section class="view" id="facilities"><div class="page-heading"><p class="eyebrow green">SMART MATCHING</p><h1>Facility availability</h1><p>See the nearest suitable facility before creating a referral.</p></div><div class="facility-grid" id="facilityCards"></div></section>
+        <section class="view" id="followups"><div class="page-heading"><p class="eyebrow green">CARE CONTINUITY</p><h1>Follow-ups & outreach</h1><p>Prioritize patients needing an ASHA/ANM follow-up.</p></div><div class="card table-wrap"><table><thead><tr><th>Patient</th><th>Condition</th><th>Due date</th><th>Assigned worker</th><th>Priority</th><th>Status</th></tr></thead><tbody id="followupRows"></tbody></table></div></section>
+      </main>
+    </div>
+    <div class="toast" id="toast" role="status"></div>
+    <script src="app.js"></script>
+  </body>
+</html>
