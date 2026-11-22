@@ -1,6 +1,6 @@
 # RuralCare 360 — Project Documentation
 
-## Smart India Hackathon 2026 Submission
+## HackWithaditya Submission
 
 ---
 
@@ -495,4 +495,4 @@ npm run start
 
 **Document Version:** 1.0  
 **Last Updated:** November 2026  
-**Project:** RuralCare 360 — Smart India Hackathon 2026
+**Project:** RuralCare 360 — HackWithaditya

@@ -212,7 +212,7 @@ export default function LandingPage() {
           </div>
           <span className="font-bold text-gray-900">RuralCare 360</span>
         </div>
-        <p>Built for Smart India Hackathon 2026</p>
+        <p>Built for HackWithaditya</p>
         <p className="mt-2 text-xs">Demo prototype — not a live healthcare system. Uses fictional data.</p>
       </footer>
     </div>

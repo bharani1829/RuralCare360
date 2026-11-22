@@ -211,7 +211,7 @@ export default function LoginPage() {
                   RuralCare 360
                 </span>
                 <span className="text-[10px] text-emerald-200/70 uppercase tracking-widest font-semibold mt-1 block">
-                  Siemens / SIH 2026 Platform
+                  HackWithaditya Platform
                 </span>
               </div>
             </div>
@@ -231,7 +231,7 @@ export default function LoginPage() {
 
           <div className="relative z-10 pt-6 border-t border-emerald-800/60 text-xs text-emerald-300/70 flex items-center justify-between">
             <span>Multi-Role Access Control</span>
-            <span className="font-mono">v1.0.0-SIH</span>
+            <span className="font-mono">v1.0.0-HackWithaditya</span>
           </div>
         </div>
 
